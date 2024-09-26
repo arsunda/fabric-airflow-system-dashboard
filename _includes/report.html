@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Cases Report</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .status-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+    }
+    .success {
+      background-color: green;
+    }
+    .failure {
+      background-color: red;
+    }
+    .skipped {
+      background-color: gray;
+    }
+    .cancelled {
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <h1>Test Cases Report</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Test Module</th>
+        <th>Test Runs(recent on left)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for module in site.data.report %}
+      <tr>
+        <td>{{ module.name }}</td>
+        {% assign runs = module.last_4_runs | sort %}
+        <td>
+        {% for run in runs %}
+          <div class="status-circle {% if run[1].state == 'success' %}success{% elsif run[1].state == 'failure' %}failure{% elsif run[1].state == 'skipped' %}skipped{% elsif run[1].state == 'cancelled' %}cancelled{% endif %}"></div>
+        {% endfor %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

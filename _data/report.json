@@ -1,0 +1,66 @@
+[
+    {
+      "name": "example_appflow",
+      "last_4_runs": {
+        "2024-09-12T10:00:00+00:00": {
+          "state": "success",
+          "message": "All tests passed successfully."
+        },
+        "2024-09-12T10:15:00+00:00": {
+          "state": "cancelled",
+          "message": "Test was cancelled due to dependency issues."
+        },
+        "2024-09-12T10:30:00+00:00": {
+          "state": "skipped",
+          "message": "Test was skipped due to configuration errors."
+        },
+        "2024-09-12T10:45:00+00:00": {
+          "state": "failure",
+          "message": "Message explaining why the test failed due to an assertion error."
+        }
+      }
+    },
+    {
+      "name": "sample_dataflow",
+      "last_4_runs": {
+        "2024-09-12T11:00:00+00:00": {
+          "state": "success",
+          "message": "All tests passed successfully."
+        },
+        "2024-09-12T11:15:00+00:00": {
+          "state": "success",
+          "message": "All tests passed successfully."
+        },
+        "2024-09-12T11:30:00+00:00": {
+          "state": "failure",
+          "message": "Test failed due to timeout issues."
+        },
+        "2024-09-12T11:45:00+00:00": {
+          "state": "skipped",
+          "message": "Test was skipped due to missing resources."
+        }
+      }
+    },
+    {
+      "name": "demo_pipeline",
+      "last_4_runs": {
+        "2024-09-12T12:00:00+00:00": {
+          "state": "failure",
+          "message": "Test failed due to incorrect data format."
+        },
+        "2024-09-12T12:15:00+00:00": {
+          "state": "cancelled",
+          "message": "Test was cancelled due to external service unavailability."
+        },
+        "2024-09-12T12:30:00+00:00": {
+          "state": "success",
+          "message": "All tests passed successfully."
+        },
+        "2024-09-12T12:45:00+00:00": {
+          "state": "skipped",
+          "message": "Test was skipped due to invalid configuration."
+        }
+      }
+    }
+  ]
+  
