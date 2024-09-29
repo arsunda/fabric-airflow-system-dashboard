@@ -56,7 +56,7 @@
         {% assign runs = module.last_runs | sort %}
         <td>
         {% for run in runs %}
-          <div class="status-circle {% if run[1].state == 'success' %}success{% elsif run[1].state == 'failure' %}failure{% elsif run[1].state == 'skipped' %}skipped{% elsif run[1].state == 'cancelled' %}cancelled{% endif %}"></div>
+          <div class="status-circle {% if run[1].type == 'success' %}success{% elsif run[1].type == 'failure' %}failure{% elsif run[1].type == 'skipped' %}skipped{% elsif run[1].type == 'cancelled' %}cancelled{% endif %}"></div>
         {% endfor %}
         </td>
       </tr>
