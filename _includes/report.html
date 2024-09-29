@@ -56,7 +56,7 @@
         {% assign runs = module.last_runs %}
         <td>
         {% for run in runs %}
-          <div class="status-circle {% if run[1].type == 'success' %}success{% elsif run[1].type == 'failure' %}failure{% elsif run[1].type == 'skipped' %}skipped{% elsif run[1].type == 'cancelled' %}cancelled{% endif %}"></div>
+          <div class="status-circle {% if run.type == 'success' %}success{% elsif run.type == 'failure' %}failure{% elsif run.type == 'skipped' %}skipped{% elsif run.type == 'cancelled' %}cancelled{% endif %}"></div>
         {% endfor %}
         </td>
       </tr>
