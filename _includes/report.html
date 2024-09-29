@@ -53,7 +53,7 @@
       {% for module in site.data.report %}
       <tr>
         <td>{{ module.name }}</td>
-        {% assign runs = module.last_4_runs %}
+        {% assign runs = module.last_runs | sort %}
         <td>
         {% for run in runs %}
           <div class="status-circle {% if run[1].state == 'success' %}success{% elsif run[1].state == 'failure' %}failure{% elsif run[1].state == 'skipped' %}skipped{% elsif run[1].state == 'cancelled' %}cancelled{% endif %}"></div>
