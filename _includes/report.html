@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Cases Report</title>
+  <title>Microsoft Fabric System tests</title>
   <style>
     table {
       width: 100%;
@@ -41,11 +41,13 @@
   </style>
 </head>
 <body>
-  <h1>Apache Airflow System Tests for Microsoft Fabric Provider</h1>
+  <h1>Apache Airflow - Microsoft Fabric Provider Health</h1>
+  <div>This live dashboard displays the current health of Microsoft Fabric system tests available in Microsoft Fabric Provider package of Apache Airflow</div>
   <table>
     <thead>
       <tr>
-        <th>Test Module</th>
+        <th>System Name</th>
+        <th>Last Run Duration (secs)</th>
         <th>Test Runs(recent on left)</th>
       </tr>
     </thead>
@@ -53,6 +55,7 @@
       {% for module in site.data.report %}
       <tr>
         <td>{{ module.name }}</td>
+        <td>{{ module.last_run_duration }}</td>
         {% assign runs = module.last_runs %}
         <td>
         {% for run in runs %}
