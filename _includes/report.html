@@ -114,7 +114,7 @@
                {% endif %} tooltip">
             <div class="tooltiptext">
               Status: {{ run.type | capitalize }}<br>
-              Timestamp: {{ run.timestamp | split: "T" | first | date: "%d %b %Y, %I:%M %p" }}
+              Timestamp: {{ run.timestamp | date: "%d %b %Y, %I:%M %p" }}
             </div>
           </div>
         {% endfor %}
