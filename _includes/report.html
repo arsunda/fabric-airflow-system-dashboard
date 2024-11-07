@@ -25,7 +25,11 @@
       height: 20px;
       border-radius: 50%;
       display: inline-block;
+      transition: opacity 0.3s ease; /* Add transition for fading */
       margin: 0 5px;
+    }
+    .status-circle:hover {
+      opacity: 0.6; /* Add fade effect on hover */
     }
     .success {
       background-color: green;
@@ -48,6 +52,7 @@
     /* Show tooltip on hover */
     .tooltip .tooltiptext {
       visibility: hidden;
+      opacity: 0; /* Start with hidden and transparent */
       width: max-content;
       height: fit-content;
       background-color: black;
@@ -60,6 +65,7 @@
       bottom: 130%;
       left: 50%;
       margin-left: -50px;
+      transition: opacity 0.3s ease; /* Smooth fade for tooltip */
     }
 
     .tooltip .tooltiptext::after {
@@ -75,6 +81,8 @@
 
     .tooltip:hover .tooltiptext {
       visibility: visible;
+      opacity: 1; /* Make tooltip visible with fade */
+
     }
   </style>
 </head>
