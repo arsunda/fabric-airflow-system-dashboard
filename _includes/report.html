@@ -7,13 +7,14 @@
   <style>
     table {
       width: 100%;
+      margin-top: 10px;
       border-collapse: collapse;
     }
     table, th, td {
       border: 1px solid black;
     }
     th, td {
-      padding: 10px;
+      padding: 5px;
       text-align: center;
     }
     th {
@@ -38,6 +39,43 @@
     .cancelled {
       background-color: orange;
     }
+    /* Tooltip container */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+    /* Show tooltip on hover */
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: max-content;
+      height: fit-content;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 130%;
+      left: 50%;
+      margin-left: -50px;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: " ";
+      position: absolute;
+      top: 100%; /* At the bottom of the tooltip */
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: black transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
   </style>
 </head>
 <body>
@@ -47,19 +85,44 @@
     <thead>
       <tr>
         <th>System Name</th>
-        <th>Last Run Duration (secs)</th>
-        <th>Test Runs(recent on left)</th>
+        <th>Last Run Duration</th>
+        <th>Test Runs(recent on right)</th>
       </tr>
     </thead>
     <tbody>
       {% for module in site.data.report %}
       <tr>
         <td>{{ module.name }}</td>
-        <td>{{ module.last_run_duration }}</td>
+        <td>
+          {% assign duration = module.last_run_duration %}
+          {% assign minutes = duration | divided_by: 60 | floor %}
+          {% assign seconds = duration | modulo: 60 | floor %}
+          
+          {% if minutes > 0 %}
+            {{ minutes }} minutes
+          {% endif %}
+          
+          {% if seconds > 0 %}
+            {% if minutes > 0 %}
+              &nbsp; 
+            {% endif %}
+            {{ seconds }} seconds
+          {% endif %}
+        </td>
         {% assign runs = module.last_runs %}
         <td>
         {% for run in runs %}
-          <div class="status-circle {% if run.type == 'success' %}success{% elsif run.type == 'failure' %}failure{% elsif run.type == 'skipped' %}skipped{% elsif run.type == 'cancelled' %}cancelled{% endif %}"></div>
+          <div class="status-circle
+               {% if run.type == 'success' %}success
+               {% elsif run.type == 'failure' %}failure
+               {% elsif run.type == 'skipped' %}skipped
+               {% elsif run.type == 'cancelled' %}cancelled
+               {% endif %} tooltip">
+            <div class="tooltiptext">
+              Status: {{ run.type | capitalize }}<br>
+              Timestamp: {{ run.timestamp | split: "T" | first | date: "%d %b %Y, %I:%M %p" }}
+            </div>
+          </div>
         {% endfor %}
         </td>
       </tr>

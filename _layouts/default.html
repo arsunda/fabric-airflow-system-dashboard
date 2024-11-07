@@ -7,8 +7,10 @@
   </head>
   <body>
     <!-- Include tag allows you to include content from another file stored in a _includes folder -->
-    {% include navigation.html %} 
-    {% include report.html %} 
+    {% include report.html %}
+    <div class="container">
+      <!-- Content inside the container, like timestamp or other data -->
       {{ content }}
+    </div>
   </body>
 </html>

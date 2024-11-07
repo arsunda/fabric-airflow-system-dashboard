@@ -1,3 +1,29 @@
-.current {
-    color: green;
+/* Base styles for desktop */
+.container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+/* Media query for screens smaller than 600px (mobile) */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 5px; /* Reduced padding on smaller screens */
+        font-size: 14px; /* Smaller text for mobile */
+    }
+
+    .timestamp {
+        font-size: 12px; /* Smaller font size for timestamps on mobile */
+    }
+}
+
+/* Media query for tablets or medium-sized screens */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 8px;
+        font-size: 16px;
+    }
 }
