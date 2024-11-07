@@ -68,20 +68,19 @@
       transition: opacity 0.3s ease; /* Smooth fade for tooltip */
     }
 
-    .tooltip .tooltiptext::after {
+    /* .tooltip .tooltiptext::after {
       content: " ";
       position: absolute;
       top: 100%; /* At the bottom of the tooltip */
-      left: 50%;
+      /* left: 50%;
       margin-left: -5px;
       border-width: 5px;
       border-style: solid;
       border-color: black transparent transparent transparent;
-    }
+    } */ */
 
     .tooltip:hover .tooltiptext {
       visibility: visible;
-      opacity: 1; /* Make tooltip visible with fade */
 
     }
   </style>
@@ -94,7 +93,7 @@
       <tr>
         <th>System Name</th>
         <th>Last Run Duration</th>
-        <th>Test Runs(recent on right)</th>
+        <th>Test Runs(recent on left)</th>
       </tr>
     </thead>
     <tbody>
