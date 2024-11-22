@@ -78,6 +78,9 @@
     <thead>
       <tr>
         <th>System Name</th>
+        <th>Invocations (Week window)</th>
+        <th>Success Runs</th>
+        <th>Failure Runs</th>
         <th>Last Run Duration</th>
         <th>Test Runs(recent on left)</th>
       </tr>
@@ -86,6 +89,9 @@
       {% for module in site.data.report %}
       <tr>
         <td>{{ module.name }}</td>
+        <td>{{ module.invocations }}</td>
+        <td>{{ module.successes }}</td>
+        <td>{{ module.failures }}</td>
         <td>
           {% assign duration = module.last_run_duration %}
           {% assign minutes = duration | divided_by: 60 | floor %}
