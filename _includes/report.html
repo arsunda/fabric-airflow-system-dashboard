@@ -89,9 +89,9 @@
       {% for module in site.data.report %}
       <tr>
         <td>{{ module.name }}</td>
-        <td>{{ module.invocations }}</td>
-        <td>{{ module.successes }}</td>
-        <td>{{ module.failures }}</td>
+        <td>{{ module.InvocationCount }}</td>
+        <td>{{ module.SuccessCount }}</td>
+        <td>{{ module.FailureCount }}</td>
         <td>
           {% assign duration = module.last_run_duration %}
           {% assign minutes = duration | divided_by: 60 | floor %}
